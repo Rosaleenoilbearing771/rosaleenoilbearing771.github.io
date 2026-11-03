@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useSite } from "@/lib/i18n";
 import { releases } from "@/content/quixosis";
@@ -24,7 +23,6 @@ export const Route = createFileRoute("/quixosis/$slug")({
 function ReleasePage() {
   const release = Route.useLoaderData();
   const site = useSite();
-  const [playerLoaded, setPlayerLoaded] = useState(false);
 
   return (
     <PageShell section={site.ui.sections.quixosis}>
@@ -48,35 +46,19 @@ function ReleasePage() {
             </h1>
             <p className="meta mt-4">{release.credit}</p>
             <p className="mt-8 max-w-sm font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
-              {site.ui.releases.hint}
+              {site.lang === "es"
+                ? "La reproducción se abre directamente en Bandcamp."
+                : "Playback opens directly on Bandcamp."}
             </p>
-            {playerLoaded ? (
-              <iframe
-                title={release.title}
-                src={release.embed}
-                loading="lazy"
-                className="mt-4 h-[400px] w-full max-w-md border-0"
-                allow="autoplay; encrypted-media"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setPlayerLoaded(true)}
-                className="hairline mt-4 border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
-              >
-                {site.lang === "es" ? "Cargar reproductor de Bandcamp" : "Load Bandcamp player"}
-              </button>
-            )}
+            <a
+              href={release.bandcamp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hairline mt-4 inline-flex w-fit items-center gap-3 border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
+            >
+              {site.ui.releases.open}
+            </a>
           </div>
-
-          <a
-            href={release.bandcamp}
-            target="_blank"
-            rel="noreferrer"
-            className="hairline inline-flex w-fit items-center gap-3 border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
-          >
-            {site.ui.releases.open}
-          </a>
         </div>
       </div>
     </PageShell>
