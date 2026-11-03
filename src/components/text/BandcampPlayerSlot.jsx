@@ -11,6 +11,7 @@ export default function BandcampPlayerSlot({
   linkColor = "9a9a9a",
   transparent = true,
   className = "",
+  autoAttach = true,
 }) {
   const site = useSite();
   const player = useBandcampPlayer();
@@ -22,7 +23,7 @@ export default function BandcampPlayerSlot({
     player?.track?.tracklist === tracklist &&
     player?.track?.linkColor === linkColor &&
     player?.track?.transparent === transparent;
-  const [requested, setRequested] = useState(() => Boolean(normalizedAlbumId && matchesCurrentPlayer));
+  const [requested, setRequested] = useState(() => Boolean(autoAttach && normalizedAlbumId && matchesCurrentPlayer));
 
   useEffect(() => {
     if (!requested || !normalizedAlbumId || !mount || !slotRef.current) return undefined;

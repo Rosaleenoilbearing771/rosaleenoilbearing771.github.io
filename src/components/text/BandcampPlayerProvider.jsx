@@ -136,7 +136,9 @@ function PlayerLayer({ track, docked, box, onStop }) {
         left: `${box.left}px`,
         width: `${box.width}px`,
         height: `${box.height}px`,
-        zIndex: 40,
+        // The player is portaled outside the Radix dialog content. Keep it
+        // above the dialog overlay/content so it remains visible in the popup.
+        zIndex: 60,
         border: 0,
       }
     : {
