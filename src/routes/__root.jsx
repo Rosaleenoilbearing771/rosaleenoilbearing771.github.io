@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/AuthContext";
 import { LangProvider } from "@/lib/i18n";
 import ReleasePlayerProvider from "@/components/quixosis/ReleasePlayerProvider";
-import BandcampPlayerProvider from "@/components/text/BandcampPlayerProvider";
 import { Base44Scripts } from "base44:document";
 import appCss from "@/index.css?url";
 
@@ -34,10 +33,8 @@ function RootComponent() {
     <AuthProvider>
       <LangProvider>
         <ReleasePlayerProvider>
-          <BandcampPlayerProvider>
-            <Outlet />
-            <Toaster />
-          </BandcampPlayerProvider>
+          <Outlet />
+          <Toaster />
         </ReleasePlayerProvider>
       </LangProvider>
     </AuthProvider>

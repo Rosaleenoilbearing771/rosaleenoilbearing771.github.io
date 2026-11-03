@@ -1,23 +1,34 @@
-import { useEffect, useRef } from "react";
-import { useBandcampPlayer } from "@/components/text/BandcampPlayerProvider";
+import { useState } from "react";
+import { useSite } from "@/lib/i18n";
 
-// Page slot for the persistent player: the iframe itself lives in the provider
-// so audio keeps running after navigation.
+const embedUrl = (albumId) =>
+  `https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=large/bgcol=0f0f0f/linkcol=9a9a9a/tracklist=true/artwork=large/transparent=true/`;
+
 export default function BandcampEmbed({ albumId, title }) {
-  const player = useBandcampPlayer();
-  const mount = player?.mount;
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (!albumId || !mount) return undefined;
-    return mount(albumId, title, ref.current);
-  }, [albumId, title, mount]);
+  const site = useSite();
+  const [loaded, setLoaded] = useState(false);
 
   if (!albumId) return null;
 
   return (
     <div className="hairline my-8 border-t pt-6">
-      <div ref={ref} className="h-[472px] w-full" />
+      {loaded ? (
+        <iframe
+          title={title || "Bandcamp player"}
+          src={embedUrl(albumId)}
+          loading="lazy"
+          className="h-[472px] w-full border-0"
+          allow="autoplay; encrypted-media"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setLoaded(true)}
+          className="hairline border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
+        >
+          {site.lang === "es" ? "Cargar reproductor de Bandcamp" : "Load Bandcamp player"}
+        </button>
+      )}
     </div>
   );
 }
