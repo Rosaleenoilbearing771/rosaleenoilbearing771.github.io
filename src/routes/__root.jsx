@@ -5,11 +5,11 @@ import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/lib/AuthContext";
 import { LangProvider } from "@/lib/i18n";
 import ReleasePlayerProvider from "@/components/quixosis/ReleasePlayerProvider";
+import BandcampPlayerProvider from "@/components/text/BandcampPlayerProvider";
 import { Base44Scripts } from "base44:document";
 import appCss from "@/index.css?url";
 
 export const Route = createRootRoute({
-  // Per-page <title>/meta come from each route's head(); this is the shared base.
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -17,10 +17,7 @@ export const Route = createRootRoute({
       { title: "Daniel Lofredo Rota" },
       { name: "description", content: "Music, podcasts and text. Quito, Ecuador." },
     ],
-    // No icon link: the platform adds the app's logo when serving.
-    links: [
-      { rel: "stylesheet", href: appCss },
-    ],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   errorComponent: DefaultCatchBoundary,
   notFoundComponent: () => <NotFound />,
@@ -32,23 +29,24 @@ function RootComponent() {
   return (
     <AuthProvider>
       <LangProvider>
-        <ReleasePlayerProvider>
-          <Outlet />
-          <Toaster />
-        </ReleasePlayerProvider>
+        {/* Keep this provider above route components and release dialogs. */}
+        <BandcampPlayerProvider>
+          <ReleasePlayerProvider>
+            <Outlet />
+            <Toaster />
+          </ReleasePlayerProvider>
+        </BandcampPlayerProvider>
       </LangProvider>
     </AuthProvider>
   );
 }
 
-// The document. There is no index.html: the server renders <html> from here.
 function RootDocument({ children }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
-      {/* data-react-root: the builder's preview bridge looks for #root and falls back to this. */}
       <body data-react-root="true">
         {children}
         <Base44Scripts />

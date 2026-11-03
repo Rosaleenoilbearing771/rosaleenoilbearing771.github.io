@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { useSite } from "@/lib/i18n";
+import BandcampPlayerSlot from "@/components/text/BandcampPlayerSlot";
 
 export default function ReleaseDialog({ release, open, onOpenChange }) {
   const site = useSite();
@@ -33,21 +34,29 @@ export default function ReleaseDialog({ release, open, onOpenChange }) {
         </div>
         <DialogDescription className="sr-only">{release?.credit}</DialogDescription>
 
-        {release && open && (
-          <div className="flex h-[360px] items-center justify-center px-6">
-            <a
-              href={release.bandcamp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hairline inline-flex items-center gap-3 border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
-            >
-              {ui.open}
-            </a>
+        {release && open ? (
+          <div className="px-4 py-3">
+            <BandcampPlayerSlot
+              albumId={release.albumId}
+              title={release.title}
+              height={360}
+              tracklist={false}
+              linkColor="9a9a9a"
+              transparent
+            />
           </div>
-        )}
+        ) : null}
 
         <div className="hairline flex items-center justify-between gap-4 border-t px-4 py-3">
           <span className="meta">{release?.credit}</span>
+          <a
+            href={release?.bandcamp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="meta shrink-0 transition-colors hover:text-foreground"
+          >
+            {ui.open}
+          </a>
         </div>
       </DialogContent>
     </Dialog>

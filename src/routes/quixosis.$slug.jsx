@@ -3,6 +3,7 @@ import { useSite } from "@/lib/i18n";
 import { releases } from "@/content/quixosis";
 import { formatPostDate } from "@/lib/dates";
 import PageShell from "@/components/PageShell";
+import BandcampPlayerSlot from "@/components/text/BandcampPlayerSlot";
 import { Image } from "@/components/ui/image";
 
 export const Route = createFileRoute("/quixosis/$slug")({
@@ -46,19 +47,27 @@ function ReleasePage() {
             </h1>
             <p className="meta mt-4">{release.credit}</p>
             <p className="mt-8 max-w-sm font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-muted-foreground">
-              {site.lang === "es"
-                ? "La reproducción se abre directamente en Bandcamp."
-                : "Playback opens directly on Bandcamp."}
+              {site.ui.releases.hint}
             </p>
-            <a
-              href={release.bandcamp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hairline mt-4 inline-flex w-fit items-center gap-3 border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
-            >
-              {site.ui.releases.open}
-            </a>
+            <BandcampPlayerSlot
+              albumId={release.albumId}
+              title={release.title}
+              height={400}
+              tracklist={false}
+              linkColor="ffffff"
+              transparent={false}
+              className="mt-4 max-w-md"
+            />
           </div>
+
+          <a
+            href={release.bandcamp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hairline inline-flex w-fit items-center gap-3 border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background"
+          >
+            {site.ui.releases.open}
+          </a>
         </div>
       </div>
     </PageShell>
